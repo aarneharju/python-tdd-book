@@ -20,7 +20,7 @@ class NewVisitorTest(unittest.TestCase):
         # The user notices the page title and header mention todo list
         self.assertIn('Todo', self.browser.title)
         header_text = self.browser.find_element_by_tag_name('h1').text
-        self.assertIn('Todo', header_text)
+        self.assertIn('todo', header_text)
         # self.fail('Finish the test!')
 
         # The user is invited to enter a todo item straight away
@@ -36,9 +36,10 @@ class NewVisitorTest(unittest.TestCase):
         time.sleep(1)
 
         table = self.browser.find_element_by_id('id_list_table')
-        rows = table.find_elements_by_tagname('tr')
+        rows = table.find_elements_by_tag_name('tr')
         self.assertTrue(
-            any(row.text == '1: Fill up the dish machine' for row in rows)
+            any(row.text == '1: Fill up the dish machine' for row in rows),
+            'New todo item did not appear in table'
         )
 
         # There is still a text box inviting the user to add another item. The user enters "Cook dinner"

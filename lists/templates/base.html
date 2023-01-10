@@ -1,0 +1,17 @@
+<html>
+
+<head>
+    <title>Todo lists</title>
+</head>
+
+<body>
+    <h1>{% block header_text %}{% endblock %}</h1>
+    <form action="{% block form_action %}{% endblock %}" method="POST">
+        <input id="id_new_item" placeholder="Enter a todo item" type="text" name="item_text">
+        {% csrf_token %}
+    </form>
+    {% block table %}
+    {% endblock %}
+</body>
+
+</html>

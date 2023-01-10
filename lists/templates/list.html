@@ -1,4 +1,21 @@
-<html>
+{% extends 'base.html' %}
+
+{% block header_text %}Your todo list{% endblock %}
+
+{% block form_action %}/lists/{{ list.id }}/add_item{% endblock %}
+
+{% block table %}
+<table id="id_list_table">
+    {% for item in list.item_set.all %}
+    <tr>
+        <td>{{ forloop.counter }}: {{ item.text }}</td>
+    </tr>
+    {% endfor %}
+</table>
+{% endblock %}
+
+
+<!-- <html>
 
 <head>
     <title>Todo lists</title>
@@ -19,4 +36,4 @@
     </table>
 </body>
 
-</html>
+</html> -->

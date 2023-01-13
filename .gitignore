@@ -4,3 +4,4 @@ virtualenv
 venv37
 __pycache__
 *.pyc
+.env
